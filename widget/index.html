@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Data lineage view</title>
+        <script src="sqlflow.widget.3.5.19.js?t=1704526657668"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', async () => {
+                const sqlflow = await SQLFlow.init({
+                    container: document.getElementById('sqlflow'),
+                    width: '100%',
+                    height: '100%',
+                    apiPrefix: '',
+                    component: {
+                        sqlEditor: false,
+                        graphLocate: true,
+                        minimap: true,
+                    },
+                });
+                const json = await fetch('json/lineageGraph.json').then(res => res.json());
+                sqlflow.visualizeJSON(json, { layout: true });
+            });
+        </script>
+        <style>
+            html, body {
+                width: 100%;
+                height: 100%;
+            }
+            div {
+                height: 100%;
+                width: 100%;
+            }
+            * {
+                margin: 0;
+                padding: 0;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="block">
+            <div id="sqlflow"></div>
+        </div>
+    </body>
+</html>
