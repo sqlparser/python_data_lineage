@@ -16,7 +16,7 @@ def call_dataFlowAnalyzer(args):
     # Start the Java Virtual Machine (JVM)
     widget_server_url = "http://localhost:8000"
     jvm = jpype.getDefaultJVMPath()
-    jar = "-Djava.class.path=jar/gudusoft.gsqlparser-2.8.5.4.jar"
+    jar = "-Djava.class.path=jar/gudusoft.gsqlparser-2.8.5.8.jar"
     jpype.startJVM(jvm, "-ea", jar)
 
     try:
