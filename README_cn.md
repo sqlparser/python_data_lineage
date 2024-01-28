@@ -90,7 +90,7 @@ python dlineage.py /t snowflake /f samlples/snowflake_nested_cte.sql /graph
 
 ![Snowflake nested CTE data lineage sample](samples/images/snowflake_nested_cte_data_lineage.png)
 
-The [source code of this sample Oracle PL/SQL](samples/snowflake_nested_cte.sql).  
+The [snowflake SQL source code of this sample](samples/snowflake_nested_cte.sql).  
 
 ### 分析 DDL, 自动画出 ER Diagram
 
@@ -104,6 +104,17 @@ python dlineage.py /t sqlserver /f samples/sqlserver_er.sql /graph /er
 ![SQL Sever ER Diagram sample](samples/images/sqlserver_er_diagram.png)
 
 The [DDL script of the above ER diagram is here](samples/sqlserver_er.sql).
+
+
+You may try more SQL scripts in your own computer without any internet connection by cloning [this python data lineage repo](https://github.com/sqlparser/python_data_lineage)
+```shell
+git clone https://github.com/sqlparser/python_data_lineage.git
+```
+
+- No database connection is needed.
+- No internet connection is needed.
+
+You only need a JDK and a python interpreter to run the Gudu SQLFlow lite version for python. 
 
 ### step 1 环境准备
   * 安装python3
