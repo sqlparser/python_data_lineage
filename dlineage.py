@@ -127,7 +127,17 @@ def call_dataFlowAnalyzer(args):
 
         result = None
         dataflow = None
-        if tableLineage:
+        if indexOf(args, "/er") != -1:
+            dlineage.getOption().setShowERDiagram(True)
+            dlineage.generateDataFlow()
+            dataflow = dlineage.getDataFlow()
+            DataFlowGraphGenerator = jpype.JClass("gudusoft.gsqlparser.dlineage.graph.DataFlowGraphGenerator")
+            generator = DataFlowGraphGenerator()
+            result = generator.genERGraph(vendor, dataflow)
+            save_to_file("widget/json/erGraph.json", str(result))
+            webbrowser.open_new(widget_server_url+"/er.html")
+            return
+        elif tableLineage:
             dlineage.generateDataFlow()
             originDataflow = dlineage.getDataFlow()
             if csv:
@@ -163,8 +173,6 @@ def call_dataFlowAnalyzer(args):
         if result != None:
             print(result)
         if dataflow != None and indexOf(args, "/graph") != -1:
-            EDbVendor = jpype.JClass("gudusoft.gsqlparser.EDbVendor")
-            vendor = EDbVendor.dbvoracle
             DataFlowGraphGenerator = jpype.JClass("gudusoft.gsqlparser.dlineage.graph.DataFlowGraphGenerator")
             generator = DataFlowGraphGenerator()
             result = generator.genDlineageGraph(vendor, False, dataflow)
@@ -216,6 +224,8 @@ if __name__ == "__main__":
       print("/showConstant: Optional, show constant table.")
       print("/treatArgumentsInCountFunctionAsDirectDataflow: Optional, treat arguments in count function as direct dataflow.")
       print("/filterRelationTypes: Optional, support fdd, fdr, join, call, er, multiple relatoin types separated by commas")
+      print("/graph: Optional, Open a browser page to graphically display the  results")
+      print("/er: Optional, Open a browser page and display the ER diagram graphically")
       sys.exit(0)
 
     call_dataFlowAnalyzer(args)
