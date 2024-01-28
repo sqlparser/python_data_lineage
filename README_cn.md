@@ -67,6 +67,23 @@ python dlineage.py /t oracle /f samlples/oracle_plsql.sql /graph
 
 The [source code of this sample Oracle PL/SQL](samlples/oracle_plsql.sql).
 
+### Able to analyze dynamic SQL to get data lineage (Postgres stored procedure)
+```sql
+CREATE OR REPLACE FUNCTION t.mergemodel(_modelid integer)
+RETURNS void
+LANGUAGE plpgsql
+AS $function$
+BEGIN
+    EXECUTE format ('INSERT INTO InSelections
+                                  SELECT * FROM AddInSelections_%s', modelid);
+                  
+END;
+$function$
+```
+
+![Postgres stored procedure data lineage sample](samples/images/postgresql_plsql_data_lineage.png)
+  
+
 ### 分析 DDL, 自动画出 ER Diagram
 
 通过执行这条命令，
