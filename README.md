@@ -4,7 +4,8 @@
 of various databases to obtain complex [data lineage](https://en.wikipedia.org/wiki/Data_lineage) relationships and visualize them.
 
 [Gudu SQLFlow Lite version for python](https://github.com/sqlparser/python_data_lineage) allows Python developers to quickly integrate data lineage analysis and 
-visualization capabilities into their own Python applications.
+visualization capabilities into their own Python applications. It can also be used in daily work by data scientists to quickly discover 
+data lineage from complex SQL scripts that usually used in ETL jobs do the data transform in a huge data platform. 
 
 Gudu SQLFlow Lite version for python is free for non-commercial use and can handle any complex SQL statements 
 with a length of up to 10k, including support for stored procedures.
@@ -15,7 +16,7 @@ in the Java library, and [a JavaScript library](https://docs.gudusoft.com/4.-sql
 
 Gudu SQLFlow Lite version for python can also automatically extract table and column constraints, 
 as well as relationships between tables and fields, from [DDL scripts exported from the database](https://docs.gudusoft.com/6.-sqlflow-ingester/introduction)
-and generate an ER Diagram
+and generate an ER Diagram.
 
 ### Automatically visualize data lineage
 
