@@ -65,7 +65,7 @@ python dlineage.py /t oracle /f samlples/oracle_plsql.sql /graph
 
 ![Oracle PL/SQL data lineage sample](samples/images/oracle_plsql_data_lineage.png)
 
-The [source code of this sample Oracle PL/SQL](samlples/oracle_plsql.sql).
+The [source code of this sample Oracle PL/SQL](samples/oracle_plsql.sql).
 
 ### Able to analyze dynamic SQL to get data lineage (Postgres stored procedure)
 ```sql
