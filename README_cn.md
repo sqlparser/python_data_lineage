@@ -9,9 +9,13 @@ Gudu SQLFlow Lite version for python 对非商业用途来说是免费的，它�
 Gudu SQLFlow Lite version for python 包含一个 Java 类库，通过分析复杂的 SQL 语句和存储过程来获取数据血缘关系，一个 python 文件，
 通过 jpype 来调用 Java 类库中的 API， 一个 Javascript 库，用来可视化数据血缘关系。
 
+Gudu SQLFlow Lite version for python 还可以自动从数据库中导出的 DDL 脚本中获取表和表，字段和字段间的约束关系，画出 ER Diagram.
+
+### 自动可视化数据血缘关系
+
 通过指向这台命令，
 ```
-python dlineage.py /f test.sql /graph
+python dlineage.py /t oracle /f test.sql /graph
 ```
 
 我们可以自动获得下面这个 Oracle SQL 语句包含的数据血缘关系
@@ -54,6 +58,11 @@ WHERE o.customer_id = c.customer_id;
 并可视化为：
 ![Oracle data lineage sample](samples/images/oracle_data_lineage.png)
 
+
+### 分析 DDL, 自动画出 ER Diagram
+![SQL Sever ER Diagram sample](samples/images/sqlserver_er_diagram.png)
+
+the [DDL script of the above ER diagram is here](samples/sqlserver_er.sql).
 
 ### step 1 环境准备
   * 安装python3
@@ -136,3 +145,9 @@ WHERE o.customer_id = c.customer_id;
 
       /graph: 可选, 打开一个浏览器页面，图形化方式展示血缘分析结果
       /er: 可选, 打开一个浏览器页面，图形化方式展示ER图
+	  
+	  
+### 从各种数据库中导出元数据
+[SQLFlow ingester](https://github.com/sqlparser/sqlflow_public/releases) 可以中数据库中导出元数据，交给 Gudu SQLFlow 进行数据血缘分析。
+
+SQLFlow ingester 的使用文档链接在哪里？
