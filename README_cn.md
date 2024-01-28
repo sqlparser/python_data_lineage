@@ -13,7 +13,7 @@ Gudu SQLFlow Lite version for python 还可以自动从数据库中导出的 DDL
 
 ### 自动可视化数据血缘关系
 
-通过指向这台命令，
+通过执行这条命令，
 ```
 python dlineage.py /t oracle /f test.sql /graph
 ```
@@ -60,6 +60,14 @@ WHERE o.customer_id = c.customer_id;
 
 
 ### 分析 DDL, 自动画出 ER Diagram
+
+通过执行这条命令，
+```
+python dlineage.py /t sqlserver /f samples/sqlserver_er.sql /graph /er
+```
+
+我们可以自动获得下面这个 SQL Server 数据库的 ER Diagram.
+
 ![SQL Sever ER Diagram sample](samples/images/sqlserver_er_diagram.png)
 
 the [DDL script of the above ER diagram is here](samples/sqlserver_er.sql).
