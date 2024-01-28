@@ -1,10 +1,65 @@
-### 在Python中如何使用数据血缘分析工具？
+## Gudu SQLFlow Lite version for python
 
-## step 1 环境准备
+[Gudu SQLFlow](https://sqlflow.gudusoft.com) 是一款用来分析各种数据库的 SQL 语句和存储过程来获取复杂的数据血缘关系并进行可视化的工具。
+
+Gudu SQLFlow Lite version for python 可以让 python 开发者把数据血缘分析和可视化能力快速集成到他们自己的 python 应用中。
+
+Gudu SQLFlow Lite version for python 对非商业用途来说是免费的，它可以处理 10k 长度以下的任意复杂的 SQL 语句，包含对存储过程的支持。
+
+Gudu SQLFlow Lite version for python 包含一个 Java 类库，通过分析复杂的 SQL 语句和存储过程来获取数据血缘关系，一个 python 文件，
+通过 jpype 来调用 Java 类库中的 API， 一个 Javascript 库，用来可视化数据血缘关系。
+
+通过指向这台命令，
+```
+python dlineage.py /f test.sql /graph
+```
+
+我们可以自动获得下面这个 Oracle SQL 语句包含的数据血缘关系
+```sql
+CREATE VIEW vsal 
+AS 
+  SELECT a.deptno                  "Department", 
+         a.num_emp / b.total_count "Employees", 
+         a.sal_sum / b.total_sal   "Salary" 
+  FROM   (SELECT deptno, 
+                 Count()  num_emp, 
+                 SUM(sal) sal_sum 
+          FROM   scott.emp 
+          WHERE  city = 'NYC' 
+          GROUP  BY deptno) a, 
+         (SELECT Count()  total_count, 
+                 SUM(sal) total_sal 
+          FROM   scott.emp 
+          WHERE  city = 'NYC') b 
+;
+
+INSERT ALL
+	WHEN ottl < 100000 THEN
+		INTO small_orders
+			VALUES(oid, ottl, sid, cid)
+	WHEN ottl > 100000 and ottl < 200000 THEN
+		INTO medium_orders
+			VALUES(oid, ottl, sid, cid)
+	WHEN ottl > 200000 THEN
+		into large_orders
+			VALUES(oid, ottl, sid, cid)
+	WHEN ottl > 290000 THEN
+		INTO special_orders
+SELECT o.order_id oid, o.customer_id cid, o.order_total ottl,
+o.sales_rep_id sid, c.credit_limit cl, c.cust_email cem
+FROM orders o, customers c
+WHERE o.customer_id = c.customer_id;
+```
+
+并可视化为：
+![Oracle data lineage sample](samples/images/oracle_data_lineage.png)
+
+
+### step 1 环境准备
   * 安装python3
   * 安装 java jdk1.8
 
-## step 2 打开web服务
+### step 2 打开web服务
  切换到本项目widget目录，执行以下命令启动web服务：
 
  `python -m http.server 8000`
@@ -13,7 +68,7 @@
   
   注意：如果要修改8000端口，需要同时在dlineage.py里修改widget_server_url
 
-## step 3 执行python脚本
+### step 3 执行python脚本
   切换到本项目根目录，即dlineage.py所在目录，执行以下命令：
 
   `python dlineage.py /f test.sql /graph`
