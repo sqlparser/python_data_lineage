@@ -83,6 +83,14 @@ $function$
 
 ![Postgres stored procedure data lineage sample](samples/images/postgresql_plsql_data_lineage.png)
   
+### Nested CTE with star columns (Snowflake SQL sample)
+```
+python dlineage.py /t snowflake /f samlples/snowflake_nested_cte.sql /graph
+```
+
+![Snowflake nested CTE data lineage sample](samples/images/snowflake_nested_cte_data_lineage.png)
+
+The [source code of this sample Oracle PL/SQL](samples/snowflake_nested_cte.sql).  
 
 ### 分析 DDL, 自动画出 ER Diagram
 
