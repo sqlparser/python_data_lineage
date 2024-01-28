@@ -1,0 +1,1 @@
+INSERT INTO t1 (col1, col2) (SELECT 'abc', mycolumn FROM mytable);

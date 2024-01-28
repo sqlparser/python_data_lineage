@@ -1,0 +1,16 @@
+CREATE OR REPLACE PROCEDURE dept_proc()
+AS 
+declare
+    DEPT_NAME VARCHAR(100);
+    DEPT_LOC  INTEGER;
+    CURSOR C1 IS 
+        SELECT name, place_id FROM hr.section WHERE place_id <= 50;
+BEGIN
+    OPEN C1;
+    LOOP
+        FETCH C1 INTO DEPT_NAME, DEPT_LOC;
+        EXIT WHEN C1%NOTFOUND;
+        DBMS_OUTPUT.PUT_LINE(DEPT_NAME||'---'||DEPT_LOC);
+    END LOOP;
+    CLOSE C1;
+END;
