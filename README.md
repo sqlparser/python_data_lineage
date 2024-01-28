@@ -1,17 +1,17 @@
 ## Gudu SQLFlow Lite version for python
 
 [Gudu SQLFlow](https://sqlflow.gudusoft.com)  is a tool used to analyze SQL statements and stored procedures 
-of various databases to obtain complex data lineage relationships and visualize them.
+of various databases to obtain complex [data lineage](https://en.wikipedia.org/wiki/Data_lineage) relationships and visualize them.
 
-Gudu SQLFlow Lite version for python allows Python developers to quickly integrate data lineage analysis and 
+[Gudu SQLFlow Lite version for python](https://github.com/sqlparser/python_data_lineage) allows Python developers to quickly integrate data lineage analysis and 
 visualization capabilities into their own Python applications.
 
 Gudu SQLFlow Lite version for python is free for non-commercial use and can handle any complex SQL statements 
 with a length of up to 10k, including support for stored procedures.
 
-Gudu SQLFlow Lite version for python includes a Java library for analyzing complex SQL statements and 
-stored procedures to retrieve data lineage relationships, a Python file that utilizes jpype to call the APIs 
-in the Java library, and a JavaScript library for visualizing data lineage relationships.
+Gudu SQLFlow Lite version for python includes [a Java library](https://www.gudusoft.com/sqlflow-java-library-2/) for analyzing complex SQL statements and 
+stored procedures to retrieve data lineage relationships, [a Python file](https://github.com/sqlparser/python_data_lineage/blob/main/dlineage.py) that utilizes jpype to call the APIs 
+in the Java library, and [a JavaScript library](https://docs.gudusoft.com/4.-sqlflow-widget/get-started) for visualizing data lineage relationships.
 
 Gudu SQLFlow Lite version for python can also automatically extract table and column constraints, 
 as well as relationships between tables and fields, from [DDL scripts exported from the database](https://docs.gudusoft.com/6.-sqlflow-ingester/introduction)
