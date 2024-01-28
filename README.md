@@ -8,7 +8,8 @@ visualization capabilities into their own Python applications. It can also be us
 data lineage from complex SQL scripts that usually used in ETL jobs do the data transform in a huge data platform. 
 
 Gudu SQLFlow Lite version for python is free for non-commercial use and can handle any complex SQL statements 
-with a length of up to 10k, including support for stored procedures.
+with a length of up to 10k, including support for stored procedures. It supports SQL dialect from more than 
+20 major database vendors such as Oracle, DB2, Snowflake, Redshift, Postgres and so on.
 
 Gudu SQLFlow Lite version for python includes [a Java library](https://www.gudusoft.com/sqlflow-java-library-2/) for analyzing complex SQL statements and 
 stored procedures to retrieve data lineage relationships, [a Python file](https://github.com/sqlparser/python_data_lineage/blob/main/dlineage.py) that utilizes jpype to call the APIs 
