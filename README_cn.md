@@ -105,6 +105,7 @@ python dlineage.py /t sqlserver /f samples/sqlserver_er.sql /graph /er
 
 The [DDL script of the above ER diagram is here](samples/sqlserver_er.sql).
 
+## Try your own SQL scripts
 
 You may try more SQL scripts in your own computer without any internet connection by cloning [this python data lineage repo](https://github.com/sqlparser/python_data_lineage)
 ```shell
