@@ -58,6 +58,14 @@ WHERE o.customer_id = c.customer_id;
 并可视化为：
 ![Oracle data lineage sample](samples/images/oracle_data_lineage.png)
 
+### Oracle PL/SQL Data Lineage 
+```
+python dlineage.py /t oracle /f samlples/oracle_plsql.sql /graph
+```
+
+![Oracle PL/SQL data lineage sample](samples/images/oracle_plsql_data_lineage.png)
+
+The [source code of this sample Oracle PL/SQL](samlples/oracle_plsql.sql).
 
 ### 分析 DDL, 自动画出 ER Diagram
 
@@ -70,7 +78,7 @@ python dlineage.py /t sqlserver /f samples/sqlserver_er.sql /graph /er
 
 ![SQL Sever ER Diagram sample](samples/images/sqlserver_er_diagram.png)
 
-the [DDL script of the above ER diagram is here](samples/sqlserver_er.sql).
+The [DDL script of the above ER diagram is here](samples/sqlserver_er.sql).
 
 ### step 1 环境准备
   * 安装python3
@@ -158,4 +166,4 @@ the [DDL script of the above ER diagram is here](samples/sqlserver_er.sql).
 ### 从各种数据库中导出元数据
 [SQLFlow ingester](https://github.com/sqlparser/sqlflow_public/releases) 可以中数据库中导出元数据，交给 Gudu SQLFlow 进行数据血缘分析。
 
-SQLFlow ingester 的使用文档链接在哪里？
+SQLFlow ingester 的[使用文档](https://docs.gudusoft.com/6.-sqlflow-ingester/introduction)
