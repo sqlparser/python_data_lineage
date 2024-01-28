@@ -119,8 +119,25 @@ You only need a JDK and a python interpreter to run the Gudu SQLFlow lite versio
 
 ### step 1 环境准备
   * 安装python3
-  * 安装 java jdk1.8
+  * 安装 java jdk， 要求jdk1.8及以上版本
 
+    检查jdk版本：`java -version`。
+    
+    如果未安装或版本小于1.8，则需要安装jdk1.8：
+
+    `sudo apt install openjdk-8-jdk`
+
+    如果报错：
+
+     `Unable to locate package openjdk-8-jdk`
+    
+     则执行以下命令安装：
+
+     ```
+     sudo add-apt-repository ppa:openjdk-r/ppa
+     apt-get update
+     sudo apt install openjdk-8-jdk
+     ```
 ### step 2 打开web服务
  切换到本项目widget目录，执行以下命令启动web服务：
 
