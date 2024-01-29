@@ -213,3 +213,8 @@ You can export metadata from the database using [SQLFlow ingester](https://githu
 and hand it over to Gudu SQLFlow for data lineage analysis.。
 
 [Document of the SQLFlow ingester](https://docs.gudusoft.com/6.-sqlflow-ingester/introduction)
+
+## Trouble shooting
+
+## Contact
+For further information, please contact support@gudusoft.com
