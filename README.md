@@ -127,7 +127,28 @@ You only need a JDK and a python interpreter to run the Gudu SQLFlow lite versio
 
 ### Step 1: Prerequisites
   * Install python3
-  * Install Java jdk1.8
+  * Install Java jdk1.8 (openJdk-8 is recommended)
+  
+    Command used to check java version:
+
+    `java -version`
+	
+    If the Java is not installed, exexute this command: 
+
+    `sudo apt install openjdk-8-jdk`
+
+    If this error occurs:
+
+     `Unable to locate package openjdk-8-jdk`
+    
+     Please execute the following commands:
+
+     ```
+     sudo add-apt-repository ppa:openjdk-r/ppa
+     apt-get update
+     sudo apt install openjdk-8-jdk
+     ```
+	 
 
 ### Step 2: Open the web service
  Switch to the widget directory of this project and execute the following command to start the web service:
@@ -214,6 +235,27 @@ and hand it over to Gudu SQLFlow for data lineage analysis.。
 [Document of the SQLFlow ingester](https://docs.gudusoft.com/6.-sqlflow-ingester/introduction)
 
 ## Trouble shooting
+
+
+### 1. SystemError: java.lang.ClassNotFoundException: org.jpype.classloader.DynamicClassLoader
+
+```
+Traceback (most recent call last):
+File "/home/grq/python_data_lineage/dlineage.py", line 231, in <module>
+call_dataFlowAnalyzer(args)
+File "/home/grq/python_data_lineage/dlineage.py", line 20, in call_dataFlowAnalyzer
+jpype.startJVM(jvm, "-ea", jar)
+File "/usr/lib/python3/dist-packages/jpype/_core.py", line 224, in startJVM
+_jpype.startup(jvmpath, tuple(args),
+SystemError: java.lang.ClassNotFoundException: org.jpype.classloader.DynamicClassLoader
+```
+
+This problem is related to python3 jpype on ubuntu system. It seems that org.jpype.jar file is missing under /usr/lib/python3/dist-packages/
+just copy org.jpype.jar to /usr/lib/python3/dist-packages/
+
+```
+cp /usr/share/java/org.jpype.jar /usr/lib/python3/dist-packages/org.jpype.jar
+```
 
 ## Contact
 For further information, please contact support@gudusoft.com
