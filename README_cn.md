@@ -119,7 +119,12 @@ You only need a JDK and a python interpreter to run the Gudu SQLFlow lite versio
 
 ### step 1 环境准备
   * 安装python3
+
+    安装完python3后，还需要安装python依赖组件jpype。
+
   * 安装 java jdk， 要求jdk1.8及以上版本
+
+    以ubuntu操作系统下安装为例：
 
     检查jdk版本：`java -version`。
     
@@ -221,3 +226,22 @@ You only need a JDK and a python interpreter to run the Gudu SQLFlow lite versio
 [SQLFlow ingester](https://github.com/sqlparser/sqlflow_public/releases) 可以中数据库中导出元数据，交给 Gudu SQLFlow 进行数据血缘分析。
 
 SQLFlow ingester 的[使用文档](https://docs.gudusoft.com/6.-sqlflow-ingester/introduction)
+
+### Trobule shooting
+
+#### 1.脚本执行报错：SystemError: java.lang.ClassNotFoundException: org.jpype.classloader.DynamicClassLoader
+```
+Traceback (most recent call last):
+File "/home/grq/python_data_lineage/dlineage.py", line 231, in <module>
+call_dataFlowAnalyzer(args)
+File "/home/grq/python_data_lineage/dlineage.py", line 20, in call_dataFlowAnalyzer
+jpype.startJVM(jvm, "-ea", jar)
+File "/usr/lib/python3/dist-packages/jpype/_core.py", line 224, in startJVM
+_jpype.startup(jvmpath, tuple(args),
+SystemError: java.lang.ClassNotFoundException: org.jpype.classloader.DynamicClassLoader
+```
+这个问题在ubuntu系统预装的python3 jpype环境中常见，原因是在/usr/lib/python3/dist-packages/目录下缺少org.jpype.jar。
+需要将org.jpype.jar 复制到/usr/lib/python3/dist-packages/目录下。
+```
+cp /usr/share/java/org.jpype.jar /usr/lib/python3/dist-packages/org.jpype.jar
+```
