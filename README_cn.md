@@ -198,7 +198,7 @@ You only need a JDK and a python interpreter to run the Gudu SQLFlow lite versio
       /t: 必选, 指定数据库类型. 
         支持 access,bigquery,couchbase,dax,db2,greenplum, gaussdb, hana,hive,impala,informix,mdx,mssql,
         sqlserver,mysql,netezza,odbc,openedge,oracle,postgresql,postgres,redshift,snowflake,
-        sybase,teradata,soql,vertica the default value is oracle
+        sybase,teradata,soql,vertica 默认是 oracle
 
       /env: 可选, 指定一个 metadata.json 来获取数据库元数据信息.
 

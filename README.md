@@ -68,7 +68,7 @@ And visualize it as:
 
 ### Oracle PL/SQL Data Lineage 
 ```
-python dlineage.py /t oracle /f samlples/oracle_plsql.sql /graph
+python dlineage.py /t oracle /f samples/oracle_plsql.sql /graph
 ```
 
 ![Oracle PL/SQL data lineage sample](samples/images/oracle_plsql_data_lineage.png)
@@ -93,7 +93,7 @@ $function$
   
 ### Nested CTE with star columns (Snowflake SQL sample)
 ```
-python dlineage.py /t snowflake /f samlples/snowflake_nested_cte.sql /graph
+python dlineage.py /t snowflake /f samples/snowflake_nested_cte.sql /graph
 ```
 
 ![Snowflake nested CTE data lineage sample](samples/images/snowflake_nested_cte_data_lineage.png)
